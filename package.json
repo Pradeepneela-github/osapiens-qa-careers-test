@@ -1,0 +1,27 @@
+{
+  "name": "osapiens-qa-careers-test",
+  "version": "1.0.0",
+  "description": "Playwright test to verify OSAPIENS job listings for 'Quality' related roles",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "codegen": "playwright codegen https://careers.osapiens.com"
+  },
+  "dependencies": {
+    "playwright": "^1.54.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.0.15"
+  },
+  "keywords": [
+    "qa",
+    "playwright",
+    "typescript",
+    "automation",
+    "careers"
+  ]
+}
+
