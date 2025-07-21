@@ -20,15 +20,8 @@ This Playwright test validates the presence and relevance of job postings on [ca
    - Searches for the keyword "Quality" in job titles
    - Fails the test if none are found
 
-## 💡 Ideas to Improve the Test
 
-- Add **accessibility checks** using Playwright's Axe integration
-- Use **regex or synonyms** to catch variations like "QA", "Quality Assurance"
-- Validate job count against **API or backend data** for consistency
-- Add **visual snapshot testing** to detect UI changes
-- Parameterize the keyword to make the test reusable for other roles
-
-## 🛠 Setup Instructions
+##  Setup Instructions
 
 1. Install dependencies:
     ```bash
@@ -37,18 +30,10 @@ This Playwright test validates the presence and relevance of job postings on [ca
 
 2. Run the test:
     ```bash
-   npx playwright test quality-jobs.spec.ts
-
-## File Structure
+   npx playwright test tests/careers-job-check.spec.ts
 
 
-
-
-
-
-
-
-## Quickstart
+##  Quickstart (From git repo)
 
 ```bash
 git clone https://github.com/Pradeepneela-github/osapiens-qa-careers-test.git
@@ -58,14 +43,8 @@ npx playwright install
 npm test
 ```
 
-## Suggestions
 
-- Screenshot capture
-- Historical job diff
-- Accessibility checks
-- GitHub Actions CI
-
-## Output
+##  Output
 
 ```
  Total Open Jobs Found: 60 open jobs.
@@ -75,35 +54,42 @@ npm test
     3. Quality Engineer - Automation (m/f/x)
 ```
 
+##  Ideas to Improve the Test
+
+- Add **accessibility checks** using Playwright's Axe integration
+- Use **regex or synonyms** to catch variations like "QA", "Quality Assurance"
+- Validate job count against **API or backend data** for consistency
+- Add **visual snapshot testing** to detect UI changes
+- Parameterize the keyword to make the test reusable for other roles
 
 
-# Playwright CI & Reporting Setup
+##  Playwright CI & Reporting Setup
 
 This project uses GitHub Actions to run Playwright tests automatically on every push and pull request.
 
-## Reporting
+##  Reporting
 
 - **HTML Report**: Interactive test results with screenshots and traces
 - **JSON Report**: Useful for dashboards or custom analysis
 - **JUnit Report**: Compatible with CI tools like Jenkins or GitLab
 
-## CI Workflow
+##  CI Workflow
 
 - Runs on `ubuntu-latest`
 - Installs dependencies and Playwright browsers
 - Executes tests and uploads reports
 
-## Daily QA Schedule
+##  Daily QA Schedule
 
 This test will now run automatically every day at **09:00 CET** using GitHub Actions cron scheduler. View results under the "Actions" tab.
 
-## Artifacts
+##  Artifacts
 
 After each run, the HTML report is available under GitHub Actions → Artifacts → `playwright-report`.
 - `playwright-report/jobs.json`: JSON export of all job titles
 - `playwright-report/jobs-screenshot.png`: Full page screenshot of the job list
 
-## Tips for more Enhancement
+##  Tips for more Enhancement
 
 - Add Allure or custom reporters for richer insights
 - Integrate Slack or email notifications for failures
