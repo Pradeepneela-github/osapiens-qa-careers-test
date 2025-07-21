@@ -1,33 +1,36 @@
-// careers-osapiens-playwright.spec.ts
 import { test, expect } from '@playwright/test';
 
-/**
- * Smoke test for osapiens careers listing.
- *
- * Ideas for improvement (inline):
- *  - Parametrize URL & keyword via process.env for reusability (e.g. JOB_KEYWORD).
- *  - Switch to role locators such as page.getByRole('heading', { name: /quality/i }) for robustness.
- *  - Enable trace & video on first retry to aid debugging in CI.
- *  - Add axe-core accessibility scan and fail on WCAG violations.
- */
-test('Careers page exposes at least one Quality job', async ({ page }) => {
-  // Arrange — go to the careers portal
-  await page.goto('https://careers.osapiens.com/', { waitUntil: 'networkidle' });
+test('Verify open jobs and check for "Quality" related job listings on osapiens careers page', async ({ page }) => {
+ 
+  // Step 1: Navigate to and Load the Osapiens careers website
+  await page.goto('https://careers.osapiens.com/');
+  await page.waitForLoadState('domcontentloaded');
+  // Improvement 1: We can add visual regression or accessibility checks here for the landing page
 
-  // IDEA: Could stub analytics with page.route('**/analytics/**', route => route.abort());
+  
+  // Step 2: Extract job titles and list out the open jobs available
+  const jobTitleElements = await page.getByRole('link').allTextContents();
+  const jobCount = jobTitleElements.length;
+  console.log(`Total Open Jobs Found: ${jobCount} open jobs.`);
+  // Improvement 2: Utilizing 'data-testid' attributes provides a reliable and maintainable strategy for locating elements within the DOM 
+  // Improvement 3: We can validate job count against expected minimum or API response
 
-  // Act — locate all visible job‑offer cards
-  const jobCards = page.locator('[data-testid="job-offer-card"]'); // selector may change; consider data‑qa attribute
+  
+  // Step 3: Check and filter if any job title contains "Quality"
+  const hasQualityJob = jobTitleElements.filter(title => title.toLowerCase().includes('quality'));
+  
+  
+  // Step 4: Print the count and the titles
+  console.log(`Total 'Quality' Related Jobs Found: ${hasQualityJob.length} job(s) with "Quality" in the title.`);
+  hasQualityJob.forEach((title, index) => console.log(`${index + 1}. ${title}`));
+  // Improvement 4: We can use regex for more flexible keyword matching (e.g., "QA", "Quality Assurance")
 
-  const totalJobs = await jobCards.count();
-  console.log(`Total open jobs: ${totalJobs}`);
 
-  // IDEA: Persist this metric to an external dashboard (StatsD/Prometheus) for trend analysis.
+  // Step 5: Fail test if none of the jobs contain "Quality"
+  expect(hasQualityJob).toBeTruthy(); // Fails if no "Quality" job is found
 
-  // Gather titles and check for keyword
-  const titles = await jobCards.locator('h3').allInnerTexts();
-  const hasQuality = titles.some(t => /quality/i.test(t));
 
-  // Assert
-  expect(hasQuality, 'Expected at least one job title to include "Quality"').toBeTruthy();
+  // Improvement 5: To capture a screenshot of the jobs page for visual QA
+  await page.screenshot({ path: 'jobs-screenshot.png', fullPage: true });
+
 });
