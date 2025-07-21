@@ -9,7 +9,8 @@ test('Verify open jobs and check for "Quality" related job listings on osapiens 
 
   
   // Step 2: Extract job titles and list out the open jobs available
-  const jobTitleElements = await page.getByRole('link').allTextContents();
+  //const jobTitleElements = await page.getByRole('link').allTextContents();
+  const jobTitleElements = await page.locator('text=/.*\\(m\\/f\\/x\\)|\\(m\\/w\\/d\\)/').allTextContents();
   const jobCount = jobTitleElements.length;
   console.log(`Total Open Jobs Found: ${jobCount} open jobs.`);
   // Improvement 2: Utilizing 'data-testid' attributes provides a reliable and maintainable strategy for locating elements within the DOM 

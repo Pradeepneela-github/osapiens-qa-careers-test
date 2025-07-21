@@ -22,6 +22,11 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
-  ]
+  ],
+  reporter: [
+    ['list'], // Console output
+    ['html', { outputFolder: 'playwright-report', open: 'on-failure' }], // Interactive HTML report
+    ['json', { outputFile: 'test-results.json' }], // Machine-readable JSON
+    ['junit', { outputFile: 'junit-report.xml' }] // CI-friendly XML format
+  ],
 });
