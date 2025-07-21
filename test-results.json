@@ -1,0 +1,141 @@
+{
+  "config": {
+    "configFile": "/Users/pradneelz/qa-tasks/osapiens-qa-careers-test/playwright.config.ts",
+    "rootDir": "/Users/pradneelz/qa-tasks/osapiens-qa-careers-test/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "on-failure"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "junit-report.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/pradneelz/qa-tasks/osapiens-qa-careers-test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/pradneelz/qa-tasks/osapiens-qa-careers-test/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "careers-job-check.spec.ts",
+      "file": "careers-job-check.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify open jobs and check for \"Quality\" related job listings on osapiens careers page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2748,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Total Open Jobs Found: 60 open jobs.\n"
+                    },
+                    {
+                      "text": "Total 'Quality' Related Jobs Found: 3 job(s) with \"Quality\" in the title.\n"
+                    },
+                    {
+                      "text": "1. Quality Assurance Engineer - Automation (m/f/x)\n"
+                    },
+                    {
+                      "text": "2. Quality Assurance Lead\n"
+                    },
+                    {
+                      "text": "3. Quality Engineer - Automation (m/f/x)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-07-21T02:04:53.607Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ce56a4d548920f39efd3-bc62f9a1930e8b7a7c2b",
+          "file": "careers-job-check.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-07-21T02:04:53.374Z",
+    "duration": 3349.7760000000003,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

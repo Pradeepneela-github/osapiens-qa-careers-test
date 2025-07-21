@@ -9,12 +9,13 @@ test('Verify open jobs and check for "Quality" related job listings on osapiens 
 
   
   // Step 2: Extract job titles and list out the open jobs available
-  //const jobTitleElements = await page.getByRole('link').allTextContents();
-  const jobTitleElements = await page.locator('text=/.*\\(m\\/f\\/x\\)|\\(m\\/w\\/d\\)/').allTextContents();
+  const jobTitleElements = await page.getByRole('link').allTextContents();
+  // Improvement 2: We can also use regex based job titles extraction (with below code)
+  // const jobTitleElements = await page.locator('text=/.*\\(m\\/f\\/x\\)|\\(m\\/w\\/d\\)/').allTextContents();
   const jobCount = jobTitleElements.length;
   console.log(`Total Open Jobs Found: ${jobCount} open jobs.`);
-  // Improvement 2: Utilizing 'data-testid' attributes provides a reliable and maintainable strategy for locating elements within the DOM 
-  // Improvement 3: We can validate job count against expected minimum or API response
+  // Improvement 3: Utilizing 'data-testid' attributes provides a reliable and maintainable strategy for locating elements within the DOM 
+  // Improvement 4: We can validate job count against expected minimum or API response
 
   
   // Step 3: Check and filter if any job title contains "Quality"
@@ -24,14 +25,14 @@ test('Verify open jobs and check for "Quality" related job listings on osapiens 
   // Step 4: Print the count and the titles
   console.log(`Total 'Quality' Related Jobs Found: ${hasQualityJob.length} job(s) with "Quality" in the title.`);
   hasQualityJob.forEach((title, index) => console.log(`${index + 1}. ${title}`));
-  // Improvement 4: We can use regex for more flexible keyword matching (e.g., "QA", "Quality Assurance")
+  // Improvement 5: We can use regex for more flexible keyword matching (e.g., "QA", "Quality Assurance")
 
 
   // Step 5: Fail test if none of the jobs contain "Quality"
   expect(hasQualityJob).toBeTruthy(); // Fails if no "Quality" job is found
 
 
-  // Improvement 5: To capture a screenshot of the jobs page for visual QA
+  // Improvement 6: To capture a screenshot of the jobs page for visual QA
   await page.screenshot({ path: 'jobs-screenshot.png', fullPage: true });
 
 });

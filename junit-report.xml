@@ -1,0 +1,14 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="3.3497760000000003">
+<testsuite name="careers-job-check.spec.ts" timestamp="2025-07-21T02:04:53.381Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.748" errors="0">
+<testcase name="Verify open jobs and check for &quot;Quality&quot; related job listings on osapiens careers page" classname="careers-job-check.spec.ts" time="2.748">
+<system-out>
+<![CDATA[Total Open Jobs Found: 60 open jobs.
+Total 'Quality' Related Jobs Found: 3 job(s) with "Quality" in the title.
+1. Quality Assurance Engineer - Automation (m/f/x)
+2. Quality Assurance Lead
+3. Quality Engineer - Automation (m/f/x)
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
