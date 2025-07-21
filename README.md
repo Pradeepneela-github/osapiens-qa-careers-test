@@ -1,6 +1,5 @@
 
 ##  Playwright Test: Quality Job Listings at Osapiens careers page
-
 ![Playwright Tests](https://github.com/Pradeepneela-github/osapiens-qa-careers-test/actions/workflows/playwright.yml/badge.svg)
 
 This Playwright test validates the presence and relevance of job postings on [careers.osapiens.com](https://careers.osapiens.com/), particularly checking for roles containing "Quality" in their titles.
