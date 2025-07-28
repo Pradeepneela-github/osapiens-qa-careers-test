@@ -94,7 +94,7 @@ After each run, the HTML report is available under GitHub Actions → Artifacts 
 - Integrate Slack or email notifications for failures
 - Use matrix strategy to test across multiple Node versions or environments
 
-
 ##  Issue found:
 
-- On the careers page (https://careers.osapiens.com/), when the user clicks on 'View Jobs' on the top right corner, the header title is displayed by trimming off half of the title (refer Image in Screenshots file)
+- On the careers page (https://careers.osapiens.com/), when the user clicks on 'View Jobs' on the top right corner, the header title is displayed by trimming off half of the title (refer ss)
+   <img width="1524" height="1006" alt="ospaiens_top right_ ViewJobs breaks the header title" src="https://github.com/user-attachments/assets/9bfdd58d-0e7f-4b00-a4e0-30e0d0af71c7" />
